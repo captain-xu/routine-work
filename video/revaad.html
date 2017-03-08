@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+    <style>
+    html,
+    body {
+        margin: 0px;
+        height: 100%;
+    }
+    #videobox {
+    	display: inline-block;
+    	position: relative;
+    	cursor: pointer;
+    }
+    #btn-play {
+    	width: 30px;
+	    height: 30px;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -15px;
+	    margin-left: -15px;
+    }
+    #time {
+    	display: inline-block;
+    	min-width: 25px;
+    	height: 25px;
+    	line-height: 25px;
+    	position: absolute;
+    	right: 5px;
+	    bottom: 5px;
+	    border-radius: 25px;
+    	background: rgba(0,0,0,0.8);
+    	color: #fff;
+    	text-align: center;
+    	display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="videobox">
+    	<img src="viewfile.png" alt="play" id="btn-play">
+        <video id='video' src='https://appnext.hs.llnwd.net/banner/video/video-23451-15.mp4?rnd=1473943561'></video>
+        <span id="time"></span>
+    </div>
+</body>
+<script type="text/javascript">
+	var video = {
+		btnPlay: document.getElementById('btn-play'),
+		videoBox: document.getElementById('videobox'),
+		videoCtrl: document.getElementById('video'),
+		timeResidue: document.getElementById('time')
+	}
+	video.videoBox.addEventListener('click', function() {
+		var timer = null;
+		if (video.videoCtrl.paused) {
+			video.btnPlay.style.display = 'none';
+			video.videoCtrl.play();
+			setInterval(function timer() {
+				var timeRemainder = video.videoCtrl.duration - video.videoCtrl.currentTime;
+				video.timeResidue.style.display = 'inline-block';
+				if (isNaN(timeRemainder)) {
+					video.timeResidue.textContent = parseInt(video.videoCtrl.duration);
+				} else {
+					video.timeResidue.textContent = parseInt(timeRemainder);
+				}
+				if (video.timeResidue.textContent === '0') {
+					video.btnPlay.style.display = 'block';
+					video.timeResidue.style.display = 'none';
+				}
+			}, 1000);
+		} else {
+			video.btnPlay.style.display = 'block';
+			clearInterval(timer);
+			video.videoCtrl.pause();
+		}
+	});
+</script>
+</html>

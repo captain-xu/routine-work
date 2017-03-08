@@ -1,0 +1,145 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html{
+	height: 100%;
+    font-size:62.5%; 
+}
+body{
+	height: 100%;
+    background: #fff;
+    font-size: 3rem;
+}
+ul, ol {
+	list-style: none;
+}
+
+i {
+	 font-style: normal;
+}
+.main {
+	text-align: center;
+	padding-bottom: 9rem;
+	height: 100%;
+}
+ .main > li {
+	display: none;
+}
+ .main > li.active {
+ 	display: block;
+ }
+.home-page {
+	height: 100%;
+	overflow: auto;
+}
+
+.home-page img {
+	max-width: 100%;
+	border-bottom: 0.1rem solid #eee;
+	cursor: pointer;
+}
+.wifi-page {
+	padding: 9rem 0rem;
+}
+.wifi-page > button {
+	width: 30rem;
+	height: 30rem;
+	font-size: 5rem;
+	background: #fff;
+	border: 0.1rem solid #30BBF2;
+	border-radius: 30rem;
+	outline: none;
+	color: #30BBF2;
+	cursor: pointer;
+}
+.wifi-page > button.active {
+    -webkit-animation: btn-active 1.5s infinite ease;
+    -moz-animation: btn-active 1.5s infinite ease;
+    -ms-animation: btn-active 1.5s infinite ease;
+    -o-animation: btn-active 1.5s infinite ease;
+    animation: btn-active 1.5s infinite ease;
+}
+@keyframes btn-active {
+	0%   {opacity: 1}
+	25%  {opacity: 0.7}
+	50%  {opacity: 0.4}
+	75%  {opacity: 0.7}
+	100% {opacity: 1}
+} 
+@-webkit-keyframes btn-active {
+	0%   {opacity: 1}
+	25%  {opacity: 0.7}
+	50%  {opacity: 0.4}
+	75%  {opacity: 0.7}
+	100% {opacity: 1}
+}
+.wifi-page > button > .iconfont {
+	font-size: 12rem;
+}
+.user-page {
+	padding: 9rem 0rem;
+}
+.user-page img {
+	width: 20rem;
+	height: 20rem;
+	border: 0.1rem solid #ddd;
+	border-radius: 22rem;
+	outline: none;
+}
+
+.footer {
+	width: 100%;
+	height: 9rem;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background: #fff;
+	padding: 1rem 0;
+	border-top: 0.1rem solid #ddd;
+	text-align: center;
+	font-size: 0;
+	z-index: 1;
+}
+.footer li {
+	position: relative;
+	float: left;
+	width: 33.333%;
+	color: #666;
+	font-size: 5rem;
+	cursor: pointer;
+}
+.footer li > * {
+	position: relative;
+	z-index: -1;
+}
+.footer li > p {
+	font-size: 3rem;
+}
+.footer li.active {
+	color: #30BBF2;
+}
+
+
+@font-face {font-family: "iconfont";
+  src: url('../fonts/iconfont.eot?t=1488354887632');
+  src: url('../fonts/iconfont.eot?t=1488354887632#iefix') format('embedded-opentype'),
+  url('../fonts/iconfont.woff?t=1488354887632') format('woff'),
+  url('../fonts/iconfont.ttf?t=1488354887632') format('truetype'),
+  url('../fonts/iconfont.svg?t=1488354887632#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before { content: "\e784"; }
+
+.icon-user:before { content: "\e7ec"; }
+
+.icon-wifi:before { content: "\e894"; }

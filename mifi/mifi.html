@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>mifi</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <ul class="main">
+        <li class="home-page">
+        	<ol>
+        		<li><img src="images/img01.png" alt="01"></li>
+        		<li><img src="images/img02.png" alt="02"></li>
+        		<li><img src="images/img03.png" alt="03"></li>
+        		<li><img src="images/img04.png" alt="04"></li>
+        		<li><img src="images/img05.png" alt="05"></li>
+        		<li><img src="images/img06.png" alt="06"></li>
+        		<li><img src="images/img07.png" alt="07"></li>
+        		<li><img src="images/img08.png" alt="08"></li>
+        		<li><img src="images/img09.png" alt="09"></li>
+        		<li><img src="images/img10.png" alt="10"></li>
+        		<li><img src="images/img01.png" alt="01"></li>
+        	</ol>
+        </li>
+        <li class="wifi-page active">
+        	<button id="connect">
+                <i class="iconfont icon-wifi"></i>
+                <p>连接WiFi</p>
+            </button>
+        </li>
+        <li class="user-page">
+        	<img src="images/icon.jpg" alt="picture">
+        </li>
+    </ul>
+    <ul class="footer iconfont">
+    	<li name="home-page">
+    		<i class="icon-home"></i>
+    		<p>首页</p>
+    	</li>
+    	<li name="wifi-page" class="active">
+    		<i class="icon-wifi"></i>
+    		<p>WiFi</p>
+    	</li>
+    	<li name="user-page">
+    		<i class="icon-user"></i>
+    		<p>我的</p>
+    	</li>
+    </ul>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.footer li').on('click', function() {
+                var name = "." + $(this).attr('name');
+                $(name).addClass('active').siblings().removeClass('active');
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+            $("#connect").on('click', function() {
+                var that = this;
+                $(that).addClass('active').find('p').html('连接中…');
+                $.ajax({
+                    url: 'http://bi.revanow.com/wifi/login',
+                    contentType: "application/json; charset=utf-8",
+                    type: "post",
+                    success: function() {
+                        $(that).find('p').html('连接成功');
+                        console.log("success");
+                    },
+                    error: function() {
+                        $(that).removeClass('active').find('p').html('连接失败');
+                        console.log("error");
+                    }
+                })
+            });
+        });
+    </script>
+</body>
+
+</html>
