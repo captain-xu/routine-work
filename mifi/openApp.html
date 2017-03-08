@@ -67,7 +67,7 @@ a {
             }
         }
     })();
-    var baseScheme = "myApp://",
+    var baseScheme = "znn://aa.bb:80/test?",//与C端约定好的url
         baseLink = "http://m.xxxx.com?";
     var createScheme = function(options, isLink) {
         var urlScheme = isLink ? baseLink : baseScheme;
@@ -100,18 +100,19 @@ a {
     var openApp = function() {
         //生成scheme
         var localUrl = createScheme({
-            type: 1,
-            id: "sdsdewe2122"
+            p: 12,
+            d: 1
         });
         var openIframe = createIframe();
         var u = navigator.userAgent;
+        console.log(u);
         if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
             //判断是否是ios
             if (isGreaterThan9()) {
                 //判断是否为ios9以上的版本
                 localUrl = createScheme({
-                    type: 1,
-                    id: "sdsdewe2122"
+                    p: 12,
+                    d: 1
                 }, true);
                 location.href = localUrl;
                 return;
@@ -121,7 +122,7 @@ a {
             setTimeout(function() {
                 var timeOutDateTime = Date.now();
                 if (timeOutDateTime - loadDateTime < 1000) {
-                    window.location.href = "下载页面";
+                    window.location.href = baseLink;
                 }
             }, 25);
         } else if (u.indexOf('Android') > -1 || u.indexOf('Adr') > -1) {
@@ -134,7 +135,7 @@ a {
                 openIframe.src = localUrl;
             }
             setTimeout(function() {
-                window.location.href = "下载页面";
+                window.location.href = baseLink;
             }, 500);
         }
     };
