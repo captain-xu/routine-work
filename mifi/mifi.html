@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta content="user-scalable=0" name="viewport">
     <title>mifi</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -28,8 +29,27 @@
         <li class="wifi-page active">
         	<button id="connect">
                 <i class="iconfont icon-wifi"></i>
-                <p>连接WiFi</p>
+                <p>Connect<br>LeWa WiFi</p>
             </button>
+            <p class="status"></p>
+            <ol class="action">
+                <li>
+                    <img src="images/shape_fault.png" alt="fault">
+                    <p>Fault Report</p>
+                </li>
+                <li>
+                    <img src="images/shape_wifi.png" alt="wifi">
+                    <p>Search WiFi</p>
+                </li>
+                <li>
+                    <img src="images/shape_transport.png" alt="transport">
+                    <p>Contact Us</p>
+                </li>
+            </ol>
+            <div class="wifi-info">
+                <span class="pull-left">LeWa WiFi</span>
+                <span class="pull-right wifi-status">Unconnected</span>
+            </div>
         </li>
         <li class="user-page">
         	<img src="images/icon.jpg" alt="picture">
@@ -38,15 +58,15 @@
     <ul class="footer iconfont">
     	<li name="home-page">
     		<i class="icon-home"></i>
-    		<p>首页</p>
+    		<p>Home</p>
     	</li>
     	<li name="wifi-page" class="active">
     		<i class="icon-wifi"></i>
-    		<p>WiFi</p>
+    		<p>LeWa WiFi</p>
     	</li>
     	<li name="user-page">
     		<i class="icon-user"></i>
-    		<p>我的</p>
+    		<p>Account</p>
     	</li>
     </ul>
     <script type="text/javascript">
@@ -58,17 +78,20 @@
             });
             $("#connect").on('click', function() {
                 var that = this;
-                $(that).addClass('active').find('p').html('连接中…');
+                $(that).addClass('active').find('p').html('Connecting…');
                 $.ajax({
                     url: 'http://bi.revanow.com/wifi/login',
                     contentType: "application/json; charset=utf-8",
                     type: "post",
                     success: function() {
-                        $(that).find('p').html('连接成功');
+                        $(that).find('p').html('Connected');
+                        $(".wifi-status").html('Connected');
+                        $(".status").html('Already Connected');
                         console.log("success");
                     },
                     error: function() {
-                        $(that).removeClass('active').find('p').html('连接失败');
+                        $(that).removeClass('active').find('p').html('Failed');
+                        $(".status").html('Failed, Please try again!');
                         console.log("error");
                     }
                 })

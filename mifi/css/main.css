@@ -19,9 +19,15 @@ ul, ol {
 i {
 	 font-style: normal;
 }
+.pull-left {
+	float: left;
+}
+.pull-right {
+	float: right;
+}
 .main {
 	text-align: center;
-	padding-bottom: 9rem;
+	padding-bottom: 10rem;
 	height: 100%;
 }
  .main > li {
@@ -41,15 +47,34 @@ i {
 	cursor: pointer;
 }
 .wifi-page {
-	padding: 9rem 0rem;
+	height: 100%;
+	overflow: auto;
+	padding-top: 9rem;
+}
+.wifi-page .status {
+    min-height: 88px;
+	color: #666;
+	padding: 2rem 0;
+}
+.wifi-page .action {
+	font-size: 0;
+}
+.wifi-page .action > li {
+	display: inline-block;
+	width: 33.3333%;
+	font-size: 3rem;
+}
+.action > li img {
+	width: 6rem;
+	height: 6rem;
 }
 .wifi-page > button {
-	width: 30rem;
-	height: 30rem;
-	font-size: 5rem;
+	width: 32rem;
+	height: 32rem;
+	font-size: 4rem;
 	background: #fff;
 	border: 0.1rem solid #30BBF2;
-	border-radius: 30rem;
+	border-radius: 32rem;
 	outline: none;
 	color: #30BBF2;
 	cursor: pointer;
@@ -60,6 +85,10 @@ i {
     -ms-animation: btn-active 1.5s infinite ease;
     -o-animation: btn-active 1.5s infinite ease;
     animation: btn-active 1.5s infinite ease;
+}
+.wifi-info {
+    padding: 6rem;
+    border-bottom: 1px solid #ddd;
 }
 @keyframes btn-active {
 	0%   {opacity: 1}
@@ -91,7 +120,7 @@ i {
 
 .footer {
 	width: 100%;
-	height: 9rem;
+	height: 10rem;
 	position: fixed;
 	left: 0;
 	bottom: 0;
