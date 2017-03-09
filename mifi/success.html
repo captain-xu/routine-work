@@ -1,55 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<title>Success</title>
+    <meta charset="UTF-8">
+    <meta content="user-scalable=0" name="viewport">
+    <title>Success</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <style>
-	*{
-		margin: 0;
-		padding: 0;
-	}
-	html{
-		height: 100%;
-		position: relative;
-    	font-size:62.5%;
-	    background: linear-gradient(#5434F6, #0CC7FE);
-	    filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#5434F6, endColorStr=#0CC7FE);
-	}
-	@media only screen and (min-width: 481px){
-	    html {
-	        font-size: 94%!important;
-	    }
-	}
-	@media only screen and (min-width: 561px){
-	    html {
-	        font-size: 109%!important;
-	    }
-	}
-	@media only screen and (min-width: 641px){
-	    html {
-	        font-size: 125%!important;
-	    }
-	}
-	body {
-		padding-top: 10rem;
-		text-align: center;
-	}
-	.logo {
-		width: 10rem;
-		height: 10rem;
-	}
-	h2 {
-		padding-top: 1rem;
-		color: #fff;
-	}
+    body {
+        background: linear-gradient(#5434F6, #0CC7FE);
+        filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#5434F6, endColorStr=#0CC7FE);
+    }
+    .logo {
+        width: 20rem;
+        height: 20rem;
+    }
+    .welcome {
+    	font-size: 4rem;
+    	padding-top: 2rem;
+    	color: #fff;
+    }
 </style>
 <body>
-	<img src="images/rocket.png" alt="logo" class="logo">
-	<h2>欢迎连接乐蛙WiFi</h2>
-	<ul>
-		<li></li>
-	</ul>
+    <ul class="main">
+        <li class="home-page">
+            <ol>
+                <li><img src="images/img01.png" alt="01"></li>
+                <li><img src="images/img02.png" alt="02"></li>
+                <li><img src="images/img03.png" alt="03"></li>
+                <li><img src="images/img04.png" alt="04"></li>
+                <li><img src="images/img05.png" alt="05"></li>
+                <li><img src="images/img06.png" alt="06"></li>
+                <li><img src="images/img07.png" alt="07"></li>
+                <li><img src="images/img08.png" alt="08"></li>
+                <li><img src="images/img09.png" alt="09"></li>
+                <li><img src="images/img10.png" alt="10"></li>
+                <li><img src="images/img01.png" alt="01"></li>
+            </ol>
+        </li>
+        <li class="wifi-page active">
+            <img src="images/rocket.png" alt="logo" class="logo">
+            <br>
+            <p class="welcome">Welcome to LeWa WiFi Service</p>
+        </li>
+        <li class="user-page">
+            <img src="images/icon.jpg" alt="picture">
+        </li>
+    </ul>
+    <ul class="footer iconfont">
+        <li name="home-page">
+            <i class="icon-home"></i>
+            <p>Home</p>
+        </li>
+        <li name="wifi-page" class="active">
+            <i class="icon-wifi"></i>
+            <p>LeWa WiFi</p>
+        </li>
+        <li name="user-page">
+            <i class="icon-user"></i>
+            <p>Account</p>
+        </li>
+    </ul>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.footer li').on('click', function() {
+                var name = "." + $(this).attr('name');
+                $(name).addClass('active').siblings().removeClass('active');
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+        });
+    </script>
 </body>
+
 </html>
