@@ -38,13 +38,11 @@ i {
  }
 .home-page {
 	height: 100%;
-	overflow: auto;
+	overflow: hidden;
 }
-
-.home-page img {
-	max-width: 100%;
-	border-bottom: 0.1rem solid #eee;
-	cursor: pointer;
+.home-page iframe {
+	width: 100%;
+	height: 100%;
 }
 .wifi-page {
 	height: 100%;
@@ -55,18 +53,6 @@ i {
     min-height: 88px;
 	color: #666;
 	padding: 2rem 0;
-}
-.wifi-page .action {
-	font-size: 0;
-}
-.wifi-page .action > li {
-	display: inline-block;
-	width: 33.3333%;
-	font-size: 3rem;
-}
-.action > li img {
-	width: 6rem;
-	height: 6rem;
 }
 .wifi-page > button {
 	width: 32rem;
@@ -86,10 +72,6 @@ i {
     -o-animation: btn-active 1.5s infinite ease;
     animation: btn-active 1.5s infinite ease;
 }
-.wifi-info {
-    padding: 6rem;
-    border-bottom: 1px solid #ddd;
-}
 @keyframes btn-active {
 	0%   {opacity: 1}
 	25%  {opacity: 0.7}
@@ -108,14 +90,12 @@ i {
 	font-size: 20rem;
 }
 .user-page {
-	padding: 9rem 0rem;
+	height: 100%;
+	overflow: hidden;
 }
-.user-page img {
-	width: 20rem;
-	height: 20rem;
-	border: 0.1rem solid #ddd;
-	border-radius: 22rem;
-	outline: none;
+.user-page iframe {
+	width: 100%;
+	height: 100%;
 }
 
 .footer {
@@ -136,7 +116,7 @@ i {
 	float: left;
 	width: 33.333%;
 	color: #666;
-	font-size: 5rem;
+	font-size: 6rem;
 	cursor: pointer;
 }
 .footer li > * {
