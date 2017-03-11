@@ -44,6 +44,9 @@
                 var name = "." + $(this).attr('name');
                 $(name).addClass('active').siblings().removeClass('active');
                 $(this).addClass('active').siblings().removeClass('active');
+                var mySwiper = new Swiper('.swiper-container', {
+                    autoplay: 2000, 
+                })
             });
             $("#connect").on('click', function() {
                 var that = this;
