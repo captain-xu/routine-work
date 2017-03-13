@@ -6,7 +6,9 @@
     <meta content="user-scalable=0" name="viewport">
     <title>Success</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
 </head>
 <style>
     body {
@@ -26,7 +28,26 @@
 <body>
     <ul class="main">
         <li class="home-page">
-            <iframe src="http://www.bilibili.com/" frameborder="0"></iframe>
+            <div class="home-header">REVA</div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/1.png"></div>
+                    <div class="swiper-slide"><img src="images/2.png"></div>
+                    <div class="swiper-slide"><img src="images/3.png"></div>
+                    <div class="swiper-slide"><img src="images/4.png"></div>
+                    <div class="swiper-slide"><img src="images/5.png"></div>
+                    <div class="swiper-slide"><img src="images/6.png"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <ol class="home-news">
+                <li><img src="images/6.png"></li>
+                <li><img src="images/5.png"></li>
+                <li><img src="images/4.png"></li>
+                <li><img src="images/3.png"></li>
+                <li><img src="images/2.png"></li>
+                <li><img src="images/1.png"></li>
+            </ol>
         </li>
         <li class="wifi-page active">
             <img src="images/rocket.png" alt="logo" class="logo">
@@ -34,7 +55,7 @@
             <p class="welcome">Welcome to LeWa WiFi Service</p>
         </li>
         <li class="user-page">
-            <iframe src="http://www.toutiao.com/" frameborder="0"></iframe>
+        
         </li>
     </ul>
     <ul class="footer iconfont">
@@ -46,18 +67,27 @@
             <i class="icon-wifi"></i>
             <p>LeWa WiFi</p>
         </li>
-        <li name="user-page">
+        <li name="home-page">
             <i class="icon-user"></i>
             <p>Account</p>
         </li>
     </ul>
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('.footer li').on('click', function() {
-                var name = "." + $(this).attr('name');
-                $(name).addClass('active').siblings().removeClass('active');
-                $(this).addClass('active').siblings().removeClass('active');
-            });
+        var homeSwiper = null;
+        $('.footer li').on('click', function() {
+            var name = "." + $(this).attr('name');
+            $(name).addClass('active').siblings().removeClass('active');
+            $(this).addClass('active').siblings().removeClass('active');
+            if (homeSwiper) {
+                return;
+            } else {
+                homeSwiper = new Swiper('.swiper-container', {
+                    autoplay: 5000,
+                    loop: true,
+                    pagination: '.swiper-pagination',
+                    paginationType: 'fraction',
+                });
+            }
         });
     </script>
 </body>
