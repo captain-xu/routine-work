@@ -105,8 +105,14 @@ i {
 	font-size: 20rem;
 }
 .user-page {
-	height: 100%;
-	overflow: auto;
+	padding: 9rem 0rem;
+}
+.user-page img {
+	width: 20rem;
+	height: 20rem;
+	border: 0.1rem solid #ddd;
+	border-radius: 22rem;
+	outline: none;
 }
 
 .footer {
